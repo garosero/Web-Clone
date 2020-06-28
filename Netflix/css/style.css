@@ -1,0 +1,192 @@
+:root {
+    --primary-color : #e50914;
+    --dark-color : #141414;
+}
+
+/*
+    em : 상위 요소 크기의 몇배인지로 정함 (font-size : 1.5em --> 글자 크기를 상위 요소 크기의 1.5배)
+    rem : 문서의 최상위 요소 - html 요소의 크기의 몇 배인지로 크기를 정함
+*/
+
+* {
+    box-sizing : border-box;
+    margin : 0;
+    padding : 0;
+}
+
+body {
+    font-family: 'Arial',sans-serif;
+    --webkit-font-smoothing: antialiased;
+    background : #000;
+    color : #999;
+}
+
+ul {
+    list-style : none;
+}
+
+h1,h2,h3,h4 {
+    color : #fff;
+}
+
+a {
+    color : #fff;
+    text-decoration: none;
+}
+
+p {
+    margin : 0.5rem 0;
+}
+
+img {
+    width:100%;
+}
+
+.showcase {
+    width : 100%;
+    height : 93vh;
+    position : relative;
+    background: url('https://i.ibb.co/vXqDmnh/background.jpg') no-repeat center center/cover;
+}
+
+.showcase::after {
+    content : '';
+    position: absolute;
+    top: 0;
+    left : 0;
+    width : 100%;
+    height : 100%;
+    z-index: 1;
+    background : rgba(0,0,0,0.6);
+    box-shadow : inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+}
+
+.showcase-top{
+    position: relative;
+    z-index : 2;
+    height : 90px;
+}
+
+.showcase-top img{
+    width : 170px;
+    position: absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%,-50%);
+/*
+    position - 태그들의 위치 결정 (default는 static 상태)
+    -->relative ; static 상태를 기준으로 top,right,bottom,left로 위치 조절된 상태
+    -->absolute : static 속성을 갖고 있지않은 부모를 기준으로 움직임 
+                  부모중에 포지션이 relative,absolute,fixed인 태그가 없다면 가장 위의 태그(body)기준
+*/
+
+/*
+    transform : 좌표공간 변형하여 콘텐츠의 형태와 위치를 바꿈
+    -->translate(x,y) 왼쪽에서부터 x만큼, 위에서부터 y만큼 위치를 정하여 이동 및 재배치
+*/
+}
+
+.showcase-top a{
+    position : absolute;
+    top: 50%;
+    right : 0;
+    transform: translate(-50%,-50%);
+/*
+    The reason why transform: translate(-50%,-50%) is required is because you want the
+    center of element to line up with center of its parent. In simple terms, it can be boiled down to 
+    translateX(-50%) translateY(-50%), which means
+*/
+}
+
+.showcase-content {
+    position : relative;
+    z-index : 2;
+    margin : auto;
+    display : flex; 
+    /*
+    위-아래가 아니라 양옆으로 정렬됨
+    */
+    flex-direction: column; /*다시 세로로 정렬*/
+    justify-content: center;
+    align-items : center;
+    text-align:center;
+    margin-top :9rem;
+}
+
+.showcase-content h1 {
+    font-weight : 700;
+    font-size : 5.2rem;
+    line-height: 1.1;
+    margin : 0 0 2rem;
+}
+
+.showcase-content p {
+    text-transform: uppercase;
+    color : #fff;
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin : 0 0 2rem;
+}
+
+/* Tabs */
+.tabs {
+    background : var(--dark-color);
+    padding-top : 1rem;
+    border-bottom: 3px solid #3d3d3d;
+
+}
+
+.tabs .container {
+    display : grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap : 1rem;
+    align-items : center;
+    justify-content: center;
+    text-align : center;
+}
+
+
+/* Container */
+.container {
+    max-width : 70%;
+    margin : auto;
+    overflow : hidden;
+    padding : 0 2rem;
+}
+
+/* Buttons */
+.btn {
+    display : inline-block;
+    background : var(--primary-color);
+    color : #fff;
+    padding : 0.4rem 1.3rem;
+    font-size:1rem;
+    text-align : center;
+    border : none;
+    cursor : pointer;
+    margin-right: 0.5rem;
+    outline : none;
+    box-shadow : 0 1px 0 rgba(0,0,0,0.45);
+    border-radius : 2px;
+}
+
+.btn:hover{
+    opacity : 0.9;
+}
+
+.btn-rounded {
+    border-radius : 5px;
+}
+
+.btn-lg {
+    font-size: 2rem;
+    padding: 1.5rem 2.1rem;
+    text-transform: uppercase;
+}
+
+.btn-xl {
+    font-size: 1rem;
+    padding: 0.8rem 1.3rem;
+    text-transform: uppercase;
+}
